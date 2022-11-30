@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace TreCasesPasswordSamlet
 {
     internal class Program
     {
+        public static string PasswordOutput = @"C:\Users\allgaw\Documents\C#\TreCases\TreCasesPasswordSamlet\TreCasesPasswordSamlet\Passwords.txt";
         static void Main(string[] args)
         {
             string PasswordInput; bool PasswordValid = false;
@@ -20,10 +23,13 @@ namespace TreCasesPasswordSamlet
                 {
                     PasswordValid = true;
                     Console.WriteLine("Den indtastede koderd er gyldig, du må fortsætte.");
+                    StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
+                    sw.WriteLine(PasswordInput);
+                    sw.Close();          
                 }
                 else
                 {
-                    Console.Write("Den indtasted kodeord er ugyldig, prøv igen.");
+                    Console.Write("Den indtastede kodeord er ugyldig, prøv igen.");
                 }
                 Console.ReadKey();
                 Console.Clear();
@@ -48,6 +54,7 @@ namespace TreCasesPasswordSamlet
 
                         //Console.Clear();
                         //B = Console.ReadLine();
+                        //B.ToUpper();
                         //if (B == "MÅl")
                         //{
                         //    A = Logic_ClassLibrary.Mål(B);
@@ -69,7 +76,6 @@ namespace TreCasesPasswordSamlet
                         string name = Console.ReadLine(); int points = Convert.ToInt32(Console.ReadLine());
                         Danser danser1 = new Danser(name, points);
                         Console.Write("{0}, {1}", danser1.name, danser1.points);
-
                         Console.ReadKey();
                         Console.Clear();
 
@@ -77,7 +83,6 @@ namespace TreCasesPasswordSamlet
                         name = Console.ReadLine(); points = Convert.ToInt32(Console.ReadLine());
                         Danser danser2 = new Danser(name, points);
                         Console.Write("{0}, {1}", danser2.name, danser2.points);
-
                         Console.ReadKey();
                         Console.Clear();
 
