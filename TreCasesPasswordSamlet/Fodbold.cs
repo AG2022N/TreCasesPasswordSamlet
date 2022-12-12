@@ -22,7 +22,6 @@ namespace TreCasesPasswordSamlet
             Console.Write("Indtast antal afleveringer: ");
             A = Convert.ToInt32(Console.ReadLine());
             B = Fodbold.AfleveringTjek(A);
-            Console.SetCursorPosition(5, 2);
             return (B);
 
             //Console.Clear();

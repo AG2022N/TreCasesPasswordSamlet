@@ -15,15 +15,19 @@ namespace TreCasesPasswordSamlet
             bool PasswordValid = false;
             while (PasswordValid == false)
             {
-                PasswordChecks.PasswordCreate();
+                PasswordValid = PasswordChecks.PasswordCreate();
                 Console.ReadKey();
                 Console.Clear();
             }
 
             int userChoice;
+            Console.SetCursorPosition(5, 1);
             Console.WriteLine("Tast 1 for at køre fodbold programmen");
-            Console.WriteLine("Tast 2 for at køre Danse programmen");
+            Console.SetCursorPosition(5, 2);
+            Console.WriteLine("Tast 2 for at køre danse programmen");
+            Console.SetCursorPosition(5, 3);
             userChoice = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
             switch (userChoice)
             {
                 case 1:
@@ -38,12 +42,14 @@ namespace TreCasesPasswordSamlet
 
                 case 2:
                     int Max;
+                    Console.SetCursorPosition(5, 1);
                     Console.WriteLine("Hvor mange par vil du gerne oprette?");
                     Max = Convert.ToInt32(Console.ReadLine());
                     for (int i = 0; i < Max; i++)
                     {
                         Console.Clear();
                         string danserPar = Danser.DanserProgram();
+                        Console.SetCursorPosition(5, 2);
                         Console.Write(danserPar);
                         i++;
                         Console.ReadKey();

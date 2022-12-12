@@ -13,11 +13,13 @@ namespace TreCasesPasswordSamlet
         public static bool PasswordCreate()
         {
             string PasswordInput;
-            Console.WriteLine("Indtast kodeorden");
+            Console.SetCursorPosition(5, 1);
+            Console.Write("Indtast kodeorden: ");
             PasswordInput = Console.ReadLine();
             if (PasswordChecks.MinimumLength(PasswordInput) && PasswordChecks.UpperAndLower(PasswordInput) && PasswordChecks.IncludesNumbers(PasswordInput) &&
                 PasswordChecks.NoNumbersAtStartOrEnd(PasswordInput) == true && PasswordChecks.DoesNotContainSpaces(PasswordInput) == true)
             {
+                Console.SetCursorPosition(5, 2);
                 Console.WriteLine("Den indtastede kodeord er gyldig, du må fortsætte.");
                 StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
                 sw.WriteLine(PasswordInput);
@@ -26,6 +28,7 @@ namespace TreCasesPasswordSamlet
             }
             else
             {
+                Console.SetCursorPosition(5, 2);
                 Console.Write("Den indtastede kodeord er ugyldig, prøv igen.");
                 return (false);
             }
