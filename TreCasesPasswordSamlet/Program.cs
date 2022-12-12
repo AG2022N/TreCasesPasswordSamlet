@@ -22,7 +22,7 @@ namespace TreCasesPasswordSamlet
                     PasswordChecks.NoNumbersAtStartOrEnd(PasswordInput) == true && PasswordChecks.DoesNotContainSpaces(PasswordInput) == true)
                 {
                     PasswordValid = true;
-                    Console.WriteLine("Den indtastede koderd er gyldig, du må fortsætte.");
+                    Console.WriteLine("Den indtastede kodeord er gyldig, du må fortsætte.");
                     StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
                     sw.WriteLine(PasswordInput);
                     sw.Close();          
@@ -44,22 +44,9 @@ namespace TreCasesPasswordSamlet
                 case 1:
                     for (int i = 0; i < 9999; i++)
                     {
-                        int A; string B;
-                        Console.Clear();
-                        Console.SetCursorPosition(5, 1);
-                        A = Convert.ToInt32(Console.ReadLine());
-                        B = Fodbold.AfleveringTjek(A);
+                        string B = Fodbold.FodboldProgram();
                         Console.SetCursorPosition(5, 2);
-                        Console.Write(B);
-
-                        //Console.Clear();
-                        //B = Console.ReadLine();
-                        //B.ToUpper();
-                        //if (B == "MÅl")
-                        //{
-                        //    A = Logic_ClassLibrary.Mål(B);
-                        //    Console.WriteLine(A);
-                        //}
+                        Console.WriteLine(B);
                         Console.ReadKey();
                     }
                     break;
