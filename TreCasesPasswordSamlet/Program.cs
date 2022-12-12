@@ -19,6 +19,13 @@ namespace TreCasesPasswordSamlet
                 Console.ReadKey();
                 Console.Clear();
             }
+            // temp
+            //while (PasswordValid == false)
+            //{
+            //    PasswordValid = PasswordChecks.PasswordCheck();
+            //    Console.ReadKey();
+            //    Console.Clear();
+            //}
 
             int userChoice;
             Console.SetCursorPosition(5, 1);
