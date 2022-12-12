@@ -11,12 +11,12 @@ namespace TreCasesPasswordSamlet
     internal class Program
     {
         public static string PasswordOutput = @"C:\Users\allgaw\Documents\C#\TreCases\TreCasesPasswordSamlet\TreCasesPasswordSamlet\Passwords.txt";
-        static void Main(string[] args)
+        static void Main()
         {
             string PasswordInput; bool PasswordValid = false;
             while (PasswordValid == false)
             {
-                Console.WriteLine("Input the password");
+                Console.WriteLine("Indtast kodeorden");
                 PasswordInput = Console.ReadLine();
                 if (PasswordChecks.MinimumLength(PasswordInput) && PasswordChecks.UpperAndLower(PasswordInput) && PasswordChecks.IncludesNumbers(PasswordInput) &&
                     PasswordChecks.NoNumbersAtStartOrEnd(PasswordInput) == true && PasswordChecks.DoesNotContainSpaces(PasswordInput) == true)
