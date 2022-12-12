@@ -23,15 +23,6 @@ namespace TreCasesPasswordSamlet
             A = Convert.ToInt32(Console.ReadLine());
             B = Fodbold.AfleveringTjek(A);
             return (B);
-
-            //Console.Clear();
-            //B = Console.ReadLine();
-            //B.ToUpper();
-            //if (B == "MÅl")
-            //{
-            //    A = Logic_ClassLibrary.Mål(B);
-            //    Console.WriteLine(A);
-            //}
         }
         public static string AfleveringTjek(int A)
         {

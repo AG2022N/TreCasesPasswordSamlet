@@ -53,7 +53,6 @@ namespace TreCasesPasswordSamlet
         //        return (false);
         //    }
         //}
-
         public static bool MinimumLength(string PasswordInput)
         {
             if (PasswordInput.Length > 11)
