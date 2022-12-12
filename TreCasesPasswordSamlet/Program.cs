@@ -10,27 +10,12 @@ namespace TreCasesPasswordSamlet
 {
     internal class Program
     {
-        public static string PasswordOutput = @"C:\Users\allgaw\Documents\C#\TreCases\TreCasesPasswordSamlet\TreCasesPasswordSamlet\Passwords.txt";
         static void Main()
         {
-            string PasswordInput; bool PasswordValid = false;
+            bool PasswordValid = false;
             while (PasswordValid == false)
             {
-                Console.WriteLine("Indtast kodeorden");
-                PasswordInput = Console.ReadLine();
-                if (PasswordChecks.MinimumLength(PasswordInput) && PasswordChecks.UpperAndLower(PasswordInput) && PasswordChecks.IncludesNumbers(PasswordInput) &&
-                    PasswordChecks.NoNumbersAtStartOrEnd(PasswordInput) == true && PasswordChecks.DoesNotContainSpaces(PasswordInput) == true)
-                {
-                    PasswordValid = true;
-                    Console.WriteLine("Den indtastede kodeord er gyldig, du må fortsætte.");
-                    StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
-                    sw.WriteLine(PasswordInput);
-                    sw.Close();          
-                }
-                else
-                {
-                    Console.Write("Den indtastede kodeord er ugyldig, prøv igen.");
-                }
+                PasswordChecks.PasswordCreate();
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -42,7 +27,7 @@ namespace TreCasesPasswordSamlet
             switch (userChoice)
             {
                 case 1:
-                    for (int i = 0; i < 9999; i++)
+                    for (int i = 0; i < 99; i++)
                     {
                         string B = Fodbold.FodboldProgram();
                         Console.SetCursorPosition(5, 2);
@@ -58,23 +43,8 @@ namespace TreCasesPasswordSamlet
                     for (int i = 0; i < Max; i++)
                     {
                         Console.Clear();
-
-                        Console.WriteLine("Første Partner");
-                        string name = Console.ReadLine(); int points = Convert.ToInt32(Console.ReadLine());
-                        Danser danser1 = new Danser(name, points);
-                        Console.Write("{0}, {1}", danser1.name, danser1.points);
-                        Console.ReadKey();
-                        Console.Clear();
-
-                        Console.WriteLine("Andet partner");
-                        name = Console.ReadLine(); points = Convert.ToInt32(Console.ReadLine());
-                        Danser danser2 = new Danser(name, points);
-                        Console.Write("{0}, {1}", danser2.name, danser2.points);
-                        Console.ReadKey();
-                        Console.Clear();
-
-                        Console.Write("{0} & {1} {2}", danser1.name, danser2.name, danser1.points + danser2.points);
-
+                        string danserPar = Danser.DanserProgram();
+                        Console.Write(danserPar);
                         i++;
                         Console.ReadKey();
                     }
