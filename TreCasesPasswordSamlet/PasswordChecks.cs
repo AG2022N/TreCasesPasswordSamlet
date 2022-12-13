@@ -30,30 +30,30 @@ namespace TreCasesPasswordSamlet
             else
             {
                 Console.SetCursorPosition(5, 2);
-                Console.Write("Den indtastede kodeord er ugyldig, prøv igen.");
+                Console.Write("Den indtastede kodeord er ugyldig fordi den opfylder ikke alle kravene, prøv igen.");
                 return (false);
             }
         }
-        //public static bool PasswordCheck()
-        //{
-        //    string PasswordInput;
-        //    Console.SetCursorPosition(5, 1);
-        //    Console.Write("Indtast kodeorden: ");
-        //    PasswordInput = Console.ReadLine();
-        //    if ()
-        //    {
-        //        Console.SetCursorPosition(5, 2);
-        //        Console.WriteLine("Den indtastede kodeord er gyldig, du må fortsætte.");
-        //        return (true);
-        //    }
-        //    else
-        //    {
-        //        Console.SetCursorPosition(5, 2);
-        //        Console.Write("Den indtastede kodeord er ugyldig, prøv igen.");
-        //        return (false);
-        //    }
-        //}
-        public static bool MinimumLength(string PasswordInput)
+        public static bool PasswordCheck()
+        {
+            string PasswordInput;
+            Console.SetCursorPosition(5, 1);
+            Console.Write("Indtast kodeorden: ");
+            PasswordInput = Console.ReadLine();
+            foreach (string line in PasswordPath)
+            {
+                if (line.Contains(PasswordInput.ToString()))
+                {
+                    Console.SetCursorPosition(5, 2);
+                    Console.WriteLine("Den indtastede kodeord er gyldig, du må fortsætte.");
+                    return (true);
+                }
+            }
+            Console.SetCursorPosition(5, 2);
+            Console.Write("Den indtastede kodeord er ugyldig, prøv igen.");
+            return (false);
+        }
+                public static bool MinimumLength(string PasswordInput)
         {
             if (PasswordInput.Length > 11)
             {

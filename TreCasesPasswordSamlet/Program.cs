@@ -13,19 +13,18 @@ namespace TreCasesPasswordSamlet
         static void Main()
         {
             bool PasswordValid = false;
-            while (PasswordValid == false)
-            {
-                PasswordValid = PasswordChecks.PasswordCreate();
-                Console.ReadKey();
-                Console.Clear();
-            }
-            // temp
             //while (PasswordValid == false)
             //{
-            //    PasswordValid = PasswordChecks.PasswordCheck();
+            //    PasswordValid = PasswordChecks.PasswordCreate();
             //    Console.ReadKey();
             //    Console.Clear();
             //}
+            while (PasswordValid == false)
+            {
+                PasswordValid = PasswordChecks.PasswordCheck();
+                Console.ReadKey();
+                Console.Clear();
+            }
 
             int userChoice;
             Console.SetCursorPosition(5, 1);
