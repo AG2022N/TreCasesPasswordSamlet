@@ -50,6 +50,7 @@ namespace TreCasesPasswordSamlet
                     int Max;
                     Console.SetCursorPosition(5, 1);
                     Console.WriteLine("Hvor mange par vil du gerne oprette?");
+                    Console.SetCursorPosition(5, 2);
                     Max = Convert.ToInt32(Console.ReadLine());
                     for (int i = 0; i < Max; i++)
                     {
@@ -57,7 +58,6 @@ namespace TreCasesPasswordSamlet
                         string danserPar = Danser.DanserProgram();
                         Console.SetCursorPosition(5, 2);
                         Console.Write(danserPar);
-                        i++;
                         Console.ReadKey();
                     }
                     break;
