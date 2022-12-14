@@ -11,8 +11,8 @@ namespace TreCasesPasswordSamlet
         static void Main()
         {
             bool PasswordValid = false;
-            int UserChoice = 0;
-            while (UserChoice < 3)
+            int UserChoice;
+            while (PasswordValid == false)
             {
                 Console.SetCursorPosition(5, 1);
                 Console.WriteLine("Tast 1 for at logge ind");
@@ -49,17 +49,27 @@ namespace TreCasesPasswordSamlet
                         }
                         break;
                 }
+            }
+            if (PasswordValid == true)
+            {
                 Console.SetCursorPosition(5, 1);
                 Console.WriteLine("Tast 1 for at køre fodbold programmen");
                 Console.SetCursorPosition(5, 2);
                 Console.WriteLine("Tast 2 for at køre danse programmen");
                 Console.SetCursorPosition(5, 3);
                 UserChoice = Convert.ToInt32(Console.ReadLine());
+
                 Console.Clear();
+                Console.SetCursorPosition(5, 1);
+                Console.WriteLine("Hvor mange gange vil du gerne køre programmen?");
+                Console.SetCursorPosition(5, 2);
+                int Max = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+
                 switch (UserChoice)
                 {
                     case 1:
-                        for (int i = 0; i < 99; i++)
+                        for (int i = 0; i < Max; i++)
                         {
                             string B = Fodbold.FodboldProgram();
                             Console.SetCursorPosition(5, 2);
@@ -69,14 +79,8 @@ namespace TreCasesPasswordSamlet
                         break;
 
                     case 2:
-                        int Max;
-                        Console.SetCursorPosition(5, 1);
-                        Console.WriteLine("Hvor mange par vil du gerne oprette?");
-                        Console.SetCursorPosition(5, 2);
-                        Max = Convert.ToInt32(Console.ReadLine());
                         for (int i = 0; i < Max; i++)
                         {
-                            Console.Clear();
                             string danserPar = Danser.DanserProgram();
                             Console.SetCursorPosition(5, 2);
                             Console.Write(danserPar);

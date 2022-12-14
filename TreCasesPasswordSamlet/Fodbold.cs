@@ -16,8 +16,8 @@ namespace TreCasesPasswordSamlet
         // Stringen skal tage imod teksten "mål", det skal være muligt med store og små bogstaver
         public static string FodboldProgram()
         {
-            int A; string B;
             Console.Clear();
+            int A; string B;
             Console.SetCursorPosition(5, 1);
             Console.Write("Indtast antal afleveringer: ");
             A = Convert.ToInt32(Console.ReadLine());
