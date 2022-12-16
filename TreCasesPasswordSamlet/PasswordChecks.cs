@@ -35,7 +35,7 @@ namespace TreCasesPasswordSamlet
         }
         public static bool NoNumbersAtStartOrEnd(string PasswordInput)
         {
-            if (char.IsDigit(PasswordInput[0])) //&& char.IsDigit(PasswordInput[PasswordInput.Length])  // fungerer ikke helt.
+            if (char.IsDigit(PasswordInput[0]) && char.IsDigit(PasswordInput[PasswordInput.Length])) // sidste bogstav tjek fungerer ikke helt.
             {
                 return (false);
             }
