@@ -14,22 +14,21 @@ namespace TreCasesPasswordSamlet
         // Hvis holdet formår at lave mindst 10 afleveringer, gives der high fives og jubles
         // Hvis der er 0 afleveringer "shh"
         // Stringen skal tage imod teksten "mål", det skal være muligt med store og små bogstaver
-        public static string AfleveringTjek(int A)
+        public static string AfleveringTjek(int A, string B)
         {
-            string C = "";
             if (A == 0)
             {
-                C = "shh";
+                B = "shh";
             }
             if (A == 10)
             {
-                C = "High fives og jubel";
+                B = "High fives og jubel";
             }
             if (A > 1 && A < 10)
             {
-                C = "huh!";
+                B = "huh!";
             }
-            return $"{C}";
+            return $"{B}";
         }
         public static int Mål(string B)
         {

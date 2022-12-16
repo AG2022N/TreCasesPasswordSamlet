@@ -137,11 +137,11 @@ namespace TreCasesPasswordSamlet
             string FodboldProgram()
             {
                 Console.Clear();
-                int A; string B;
+                int A; string B ="";
                 Console.SetCursorPosition(5, 1);
                 Console.Write("Indtast antal afleveringer: ");
                 A = Convert.ToInt32(Console.ReadLine());
-                B = Fodbold.AfleveringTjek(A);
+                B = Fodbold.AfleveringTjek(A, B);
                 return (B);
             }
         }
