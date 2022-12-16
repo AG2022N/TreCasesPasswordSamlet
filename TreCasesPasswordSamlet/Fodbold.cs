@@ -14,16 +14,6 @@ namespace TreCasesPasswordSamlet
         // Hvis holdet formår at lave mindst 10 afleveringer, gives der high fives og jubles
         // Hvis der er 0 afleveringer "shh"
         // Stringen skal tage imod teksten "mål", det skal være muligt med store og små bogstaver
-        public static string FodboldProgram()
-        {
-            Console.Clear();
-            int A; string B;
-            Console.SetCursorPosition(5, 1);
-            Console.Write("Indtast antal afleveringer: ");
-            A = Convert.ToInt32(Console.ReadLine());
-            B = Fodbold.AfleveringTjek(A);
-            return (B);
-        }
         public static string AfleveringTjek(int A)
         {
             string C = "";
