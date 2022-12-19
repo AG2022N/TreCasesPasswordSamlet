@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TreCasesPasswordSamlet
 {
@@ -14,136 +11,96 @@ namespace TreCasesPasswordSamlet
         static void Main()
         {
             bool PasswordValid = false;
-            int UserChoice;
-            while (PasswordValid == false)
+            int UserChoice = UI.Menu1();
+
+            switch (UserChoice)
             {
-                Console.SetCursorPosition(5, 1);
-                Console.WriteLine("Tast 1 for at logge ind");
-                Console.SetCursorPosition(5, 2);
-                Console.WriteLine("Tast 2 for at skabe en password");
-                Console.SetCursorPosition(5, 3);
-                Console.WriteLine("Tast 3 for at lukke programmen");
-                Console.SetCursorPosition(5, 4);
-                UserChoice = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
-
-                switch (UserChoice)
-                {
-                    case 1:
-                        while (PasswordValid == false)
-                        {
-                            PasswordValid = PasswordCheck();
-                            Console.ReadKey();
-                            Console.Clear();
-                        }
-                        break;
-
-                    case 2:
-                        while (PasswordValid == false)
-                        {
-                            PasswordValid = PasswordCreate();
-                            Console.ReadKey();
-                            Console.Clear();
-                        }
-                        break;
-                    
-                    case 3:
-                        Environment.Exit(0);
-                        break;
-                }
-            }
-                Console.SetCursorPosition(5, 1);
-                Console.WriteLine("Tast 1 for at køre fodbold programmen");
-                Console.SetCursorPosition(5, 2);
-                Console.WriteLine("Tast 2 for at køre danse programmen");
-                Console.SetCursorPosition(5, 3);
-                UserChoice = Convert.ToInt32(Console.ReadLine());
-
-                Console.Clear();
-                Console.SetCursorPosition(5, 1);
-                Console.WriteLine("Hvor mange gange vil du gerne køre programmen?");
-                Console.SetCursorPosition(5, 2);
-                int Max = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
-
-                switch (UserChoice)
-                {
-                    case 1:
-                        for (int i = 0; i < Max; i++)
-                        {
-                            string B = FodboldProgram();
-                            Console.SetCursorPosition(5, 2);
-                            Console.WriteLine(B);
-                            Console.ReadKey();
-                        }
-                        break;
-
-                    case 2:
-                        for (int i = 0; i < Max; i++)
-                        {
-                            string danserPar = Danser.DanserProgram();
-                            Console.SetCursorPosition(5, 2);
-                            Console.Write(danserPar);
-                            Console.ReadKey();
-                            Console.Clear();
-                        }
-                        break;
-                }
-
-            bool PasswordCreate()
-            {
-                string PasswordInput;
-                Console.SetCursorPosition(5, 1);
-                Console.Write("Indtast kodeorden: ");
-                PasswordInput = Console.ReadLine();
-                if (PasswordChecks.MinimumLength(PasswordInput) && PasswordChecks.UpperAndLower(PasswordInput) && PasswordChecks.IncludesNumbers(PasswordInput) &&
-                    PasswordChecks.NoNumbersAtStartOrEnd(PasswordInput) == true && PasswordChecks.DoesNotContainSpaces(PasswordInput) == true)
-                {
-                    Console.SetCursorPosition(5, 2);
-                    Console.WriteLine("Den indtastede kodeord er gyldig, du må fortsætte.");
-                    StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
-                    sw.WriteLine(PasswordInput);
-                    sw.Close();
-                    return (true);
-                }
-                else
-                {
-                    Console.SetCursorPosition(5, 2);
-                    Console.Write("Den indtastede kodeord er ugyldig fordi den opfylder ikke alle kravene, prøv igen.");
-                    return (false);
-                }
-            }
-
-            bool PasswordCheck()
-            {
-                string PasswordInput;
-                Console.SetCursorPosition(5, 1);
-                Console.Write("Indtast kodeorden: ");
-                PasswordInput = Console.ReadLine();
-                foreach (string line in PasswordPath)
-                {
-                    if (line.Contains(PasswordInput.ToString()))
+                case 1:
+                    while (PasswordValid == false)
                     {
-                        Console.SetCursorPosition(5, 2);
-                        Console.WriteLine("Den indtastede kodeord er gyldig, du må fortsætte.");
-                        return (true);
+                        PasswordValid = PasswordCheck();
+                        Console.ReadKey();
+                        Console.Clear();
                     }
-                }
-                Console.SetCursorPosition(5, 2);
-                Console.Write("Den indtastede kodeord er ugyldig, prøv igen.");
+                    break;
+
+                case 2:
+                    while (PasswordValid == false)
+                    {
+                        PasswordValid = PasswordCreate();
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+            }
+
+            UserChoice = UI.Menu2();
+            int Max = UI.Menu3();
+            switch (UserChoice)
+            {
+                case 1:
+                    for (int i = 0; i < Max; i++)
+                    {
+                        string B = FodboldProgram();
+                        Console.SetCursorPosition(5, 2);
+                        Console.WriteLine(B);
+                        Console.ReadKey();
+                    }
+                    break;
+
+                case 2:
+                    for (int i = 0; i < Max; i++)
+                    {
+                        string danserPar = Case2Danser.DanserProgram();
+                        Console.SetCursorPosition(5, 2);
+                        Console.Write(danserPar);
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    break;
+            }
+        }
+
+        public static bool PasswordCreate()
+        {
+            string PasswordInput = UI.PasswordCheckText1();
+            if (Case3Password.MinimumLength(PasswordInput) && Case3Password.UpperAndLower(PasswordInput) && Case3Password.IncludesNumbers(PasswordInput) &&
+                Case3Password.NoNumbersAtStartOrEnd(PasswordInput) == true && Case3Password.DoesNotContainSpaces(PasswordInput) == true)
+            {
+                Console.WriteLine(UI.PasswordCreateText1());
+                StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
+                sw.WriteLine(PasswordInput);
+                sw.Close();
+                return (true);
+            }
+            else
+            {
+                Console.WriteLine(UI.PasswordCreateText2());
                 return (false);
             }
-
-            string FodboldProgram()
+        }
+        public static bool PasswordCheck()
+        {
+            string PasswordInput = UI.PasswordCheckText1();
+            foreach (string line in PasswordPath)
             {
-                Console.Clear();
-                int A; string B = "";
-                Console.SetCursorPosition(5, 1);
-                Console.Write("Indtast antal afleveringer: ");
-                A = Convert.ToInt32(Console.ReadLine());
-                B = Fodbold.AfleveringTjek(A, B);
-                return (B);
+                if (line.Contains(PasswordInput.ToString()))
+                {
+                    Console.WriteLine(UI.PasswordCheckText2());
+                    return (true);
+                }
             }
+            Console.WriteLine(UI.PasswordCheckText3());
+            return (false);
+        }
+        public static string FodboldProgram()
+        {
+            int A = UI.FodboldProgramText();
+            string B = Case1Fodbold.AfleveringTjek(A);
+            return (B);
         }
     }
 }
