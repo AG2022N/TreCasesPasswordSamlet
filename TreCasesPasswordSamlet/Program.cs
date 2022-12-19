@@ -18,6 +18,7 @@ namespace TreCasesPasswordSamlet
                 case 1:
                     while (PasswordValid == false)
                     {
+                        //string Username = AccountCreate();
                         PasswordValid = PasswordCheck();
                         Console.ReadKey();
                         Console.Clear();
@@ -58,17 +59,23 @@ namespace TreCasesPasswordSamlet
                         Console.SetCursorPosition(5, 2);
                         Console.Write(danserPar);
                         Console.ReadKey();
-                        Console.Clear();
                     }
                     break;
             }
+        }
+
+        public static string AccountCreate()
+        {
+            Console.Write("Tast ind brugernavn: ");
+            string Text = Console.ReadLine();
+            return (Text);
         }
 
         public static bool PasswordCreate()
         {
             string PasswordInput = UI.PasswordCheckTextPrompt();
             if (Case3Password.MinimumLength(PasswordInput) && Case3Password.UpperAndLower(PasswordInput) && Case3Password.IncludesNumbers(PasswordInput) &&
-                Case3Password.NoNumbersAtStartOrEnd(PasswordInput) == true && Case3Password.DoesNotContainSpaces(PasswordInput) == true)
+                Case3Password.NoNumbersAtStartOrEnd(PasswordInput) && Case3Password.DoesNotContainSpaces(PasswordInput))
             {
                 Console.WriteLine(UI.PasswordCreateTextSuccess());
                 StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
