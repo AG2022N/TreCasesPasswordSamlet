@@ -66,11 +66,11 @@ namespace TreCasesPasswordSamlet
 
         public static bool PasswordCreate()
         {
-            string PasswordInput = UI.PasswordCheckText1();
+            string PasswordInput = UI.PasswordCheckTextPrompt();
             if (Case3Password.MinimumLength(PasswordInput) && Case3Password.UpperAndLower(PasswordInput) && Case3Password.IncludesNumbers(PasswordInput) &&
                 Case3Password.NoNumbersAtStartOrEnd(PasswordInput) == true && Case3Password.DoesNotContainSpaces(PasswordInput) == true)
             {
-                Console.WriteLine(UI.PasswordCreateText1());
+                Console.WriteLine(UI.PasswordCreateTextSuccess());
                 StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
                 sw.WriteLine(PasswordInput);
                 sw.Close();
@@ -78,22 +78,22 @@ namespace TreCasesPasswordSamlet
             }
             else
             {
-                Console.WriteLine(UI.PasswordCreateText2());
+                Console.WriteLine(UI.PasswordCreateTextFail());
                 return (false);
             }
         }
         public static bool PasswordCheck()
         {
-            string PasswordInput = UI.PasswordCheckText1();
+            string PasswordInput = UI.PasswordCheckTextPrompt();
             foreach (string line in PasswordPath)
             {
                 if (line.Contains(PasswordInput.ToString()))
                 {
-                    Console.WriteLine(UI.PasswordCheckText2());
+                    Console.WriteLine(UI.PasswordCheckTextSuccess());
                     return (true);
                 }
             }
-            Console.WriteLine(UI.PasswordCheckText3());
+            Console.WriteLine(UI.PasswordCheckTextFail());
             return (false);
         }
         public static string FodboldProgram()

@@ -39,33 +39,33 @@ namespace TreCasesPasswordSamlet
             return (Number);
         }
 
-        public static string PasswordCreateText1()
+        public static string PasswordCreateTextSuccess()
         {
             Console.SetCursorPosition(5, 2);
             return ("Den indtastede kodeord er gyldig, du må fortsætte.");
         }
-        public static string PasswordCreateText2()
+        public static string PasswordCreateTextFail()
         {
             Console.SetCursorPosition(5, 2);
             return ("Den indtastede kodeord er ugyldig, prøv igen.");
         }
 
-        public static string PasswordCheckText1()
+        public static string PasswordCheckTextPrompt()
         {
             Console.SetCursorPosition(5, 1);
             Console.Write("Indtast kodeorden: ");
             Text = Console.ReadLine();
             return (Text);
         }
-        public static string PasswordCheckText2()
+        public static string PasswordCheckTextSuccess()
         {
             Console.SetCursorPosition(5, 2);
             return ("Den indtastede kodeord er gyldig, du må fortsætte.");
         }
-        public static string PasswordCheckText3()
+        public static string PasswordCheckTextFail()
         {
             Console.SetCursorPosition(5, 1);
-            return ("Indtastede brugernavn eller password er forkert angivet");
+            return ("Den indtastede brugernavn eller password er forkert angivet");
         }
 
         public static int FodboldProgramText()
