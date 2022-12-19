@@ -12,7 +12,6 @@ namespace TreCasesPasswordSamlet
         {
             bool PasswordValid = false;
             int UserChoice = UI.Menu1();
-
             switch (UserChoice)
             {
                 case 1:
@@ -24,7 +23,6 @@ namespace TreCasesPasswordSamlet
                         Console.Clear();
                     }
                     break;
-
                 case 2:
                     while (PasswordValid == false)
                     {
@@ -51,7 +49,6 @@ namespace TreCasesPasswordSamlet
                         Console.ReadKey();
                     }
                     break;
-
                 case 2:
                     for (int i = 0; i < Max; i++)
                     {
@@ -69,6 +66,10 @@ namespace TreCasesPasswordSamlet
             Console.Write("Tast ind brugernavn: ");
             string Text = Console.ReadLine();
             return (Text);
+            // Might want to merge this with PasswordCreate, it will then first take the username, then the password, check if password is valid then
+            // Write both to file, in whatever configuration enables it to be read in such a way, the username is recognized as such and so is the password
+            // with their connection also being recognized, and password checker checking if the password fits the criteria and belongs with that particular username
+            // there of course also being a check on the username existing when using the log-in function.
         }
 
         public static bool PasswordCreate()
