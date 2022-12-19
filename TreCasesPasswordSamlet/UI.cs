@@ -65,7 +65,7 @@ namespace TreCasesPasswordSamlet
         public static string PasswordCheckText3()
         {
             Console.SetCursorPosition(5, 1);
-            return ("Den indtastede kodeord er ugyldig fordi den opfylder ikke alle kravene, prøv igen.");
+            return ("Indtastede brugernavn eller password er forkert angivet");
         }
 
         public static int FodboldProgramText()
