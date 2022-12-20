@@ -60,7 +60,21 @@ namespace TreCasesPasswordSamlet
                     break;
             }
         }
-
+        //Add a username and password search and check.
+        public static bool PasswordSearch()
+        {
+            string PasswordInput = UI.PasswordPromptText();
+            foreach (string line in PasswordPath)
+            {
+                if (line.Contains(PasswordInput.ToString()))
+                {
+                    Console.WriteLine(UI.PasswordSearchSuccessText());
+                    return (true);
+                }
+            }
+            Console.WriteLine(UI.PasswordSearchFailText());
+            return (false);
+        }
         public static string UsernameCreate()
         {
             string Text = UI.UsernameCreatePromptText();
@@ -88,20 +102,6 @@ namespace TreCasesPasswordSamlet
             sw.WriteLine(Text);
             sw.Close();
             return (UI.PasswordWriteToFileSuccess());
-        }
-        public static bool PasswordSearch()
-        {
-            string PasswordInput = UI.PasswordPromptText();
-            foreach (string line in PasswordPath)
-            {
-                if (line.Contains(PasswordInput.ToString()))
-                {
-                    Console.WriteLine(UI.PasswordSearchSuccessText());
-                    return (true);
-                }
-            }
-            Console.WriteLine(UI.PasswordSearchFailText());
-            return (false);
         }
         public static string FodboldProgram()
         {
