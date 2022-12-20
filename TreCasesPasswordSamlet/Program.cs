@@ -17,8 +17,7 @@ namespace TreCasesPasswordSamlet
                 case 1:
                     while (PasswordValid == false)
                     {
-                        //string Username = AccountCreate();
-                        PasswordValid = PasswordCheck();
+                        PasswordValid = PasswordSearch();
                         Console.ReadKey();
                         Console.Clear();
                     }
@@ -26,7 +25,8 @@ namespace TreCasesPasswordSamlet
                 case 2:
                     while (PasswordValid == false)
                     {
-                        PasswordValid = PasswordCreate();
+                        string UsernameInput = UsernameCreate();
+                        PasswordValid = PasswordCreate(UsernameInput);
                         Console.ReadKey();
                         Console.Clear();
                     }
@@ -61,27 +61,19 @@ namespace TreCasesPasswordSamlet
             }
         }
 
-        public static string AccountCreate()
+        public static string UsernameCreate()
         {
-            Console.Write("Tast ind brugernavn: ");
-            string Text = Console.ReadLine();
+            string Text = UI.UsernameCreatePromptText();
             return (Text);
-            // Might want to merge this with PasswordCreate, it will then first take the username, then the password, check if password is valid then
-            // Write both to file, in whatever configuration enables it to be read in such a way, the username is recognized as such and so is the password
-            // with their connection also being recognized, and password checker checking if the password fits the criteria and belongs with that particular username
-            // there of course also being a check on the username existing when using the log-in function.
         }
-
-        public static bool PasswordCreate()
+        public static bool PasswordCreate(string Text)
         {
-            string PasswordInput = UI.PasswordCheckTextPrompt();
+            string PasswordInput = UI.PasswordPromptText();
             if (Case3Password.MinimumLength(PasswordInput) && Case3Password.UpperAndLower(PasswordInput) && Case3Password.IncludesNumbers(PasswordInput) &&
                 Case3Password.NoNumbersAtStartOrEnd(PasswordInput) && Case3Password.DoesNotContainSpaces(PasswordInput))
             {
+                PasswordWriteToFile(Text + ", " + PasswordInput);
                 Console.WriteLine(UI.PasswordCreateTextSuccess());
-                StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
-                sw.WriteLine(PasswordInput);
-                sw.Close();
                 return (true);
             }
             else
@@ -90,18 +82,25 @@ namespace TreCasesPasswordSamlet
                 return (false);
             }
         }
-        public static bool PasswordCheck()
+        public static string PasswordWriteToFile(string Text)
         {
-            string PasswordInput = UI.PasswordCheckTextPrompt();
+            StreamWriter sw = new StreamWriter(PasswordOutput, true, Encoding.ASCII);
+            sw.WriteLine(Text);
+            sw.Close();
+            return (UI.PasswordWriteToFileSuccess());
+        }
+        public static bool PasswordSearch()
+        {
+            string PasswordInput = UI.PasswordPromptText();
             foreach (string line in PasswordPath)
             {
                 if (line.Contains(PasswordInput.ToString()))
                 {
-                    Console.WriteLine(UI.PasswordCheckTextSuccess());
+                    Console.WriteLine(UI.PasswordSearchSuccessText());
                     return (true);
                 }
             }
-            Console.WriteLine(UI.PasswordCheckTextFail());
+            Console.WriteLine(UI.PasswordSearchFailText());
             return (false);
         }
         public static string FodboldProgram()

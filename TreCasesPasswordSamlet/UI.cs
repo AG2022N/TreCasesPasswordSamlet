@@ -10,7 +10,7 @@ namespace TreCasesPasswordSamlet
             Console.SetCursorPosition(5, 1);
             Console.WriteLine("Tast 1 for at logge ind");
             Console.SetCursorPosition(5, 2);
-            Console.WriteLine("Tast 2 for at skabe en password");
+            Console.WriteLine("Tast 2 for at skabe en bruger");
             Console.SetCursorPosition(5, 3);
             Console.WriteLine("Tast 3 for at lukke programmen");
             Console.SetCursorPosition(5, 4);
@@ -18,6 +18,46 @@ namespace TreCasesPasswordSamlet
             Console.Clear();
             return (Number);
         }
+        public static string UsernameCreatePromptText()
+        {
+            Console.SetCursorPosition(5, 1);
+            Console.Write("Tast ind brugernavn: ");
+            string Text = Console.ReadLine();
+            return (Text);
+        }
+        public static string PasswordCreateTextSuccess()
+        {
+            Console.SetCursorPosition(5, 3);
+            return ("Den indtastede kodeord er gyldig, du må fortsætte.");
+        }
+        public static string PasswordCreateTextFail()
+        {
+            Console.SetCursorPosition(5, 3);
+            return ("Den indtastede kodeord er ugyldig, prøv igen.");
+        }
+        public static string PasswordPromptText()
+        {
+            Console.SetCursorPosition(5, 2);
+            Console.Write("Indtast kodeorden: ");
+            Text = Console.ReadLine();
+            return (Text);
+        }
+        public static string PasswordWriteToFileSuccess()
+        {
+            Text = ("Password Gemt");
+            return (Text);
+        }
+        public static string PasswordSearchSuccessText()
+        {
+            Console.SetCursorPosition(5, 3);
+            return ("Den indtastede kodeord er Korrekt, du må fortsætte.");
+        }
+        public static string PasswordSearchFailText()
+        {
+            Console.SetCursorPosition(5, 3);
+            return ("Den indtastede brugernavn eller password er forkert angivet");
+        }
+
         public static int Menu2()
         {
             Console.SetCursorPosition(5, 1);
@@ -37,35 +77,6 @@ namespace TreCasesPasswordSamlet
             Number = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             return (Number);
-        }
-
-        public static string PasswordCreateTextSuccess()
-        {
-            Console.SetCursorPosition(5, 2);
-            return ("Den indtastede kodeord er gyldig, du må fortsætte.");
-        }
-        public static string PasswordCreateTextFail()
-        {
-            Console.SetCursorPosition(5, 2);
-            return ("Den indtastede kodeord er ugyldig, prøv igen.");
-        }
-
-        public static string PasswordCheckTextPrompt()
-        {
-            Console.SetCursorPosition(5, 1);
-            Console.Write("Indtast kodeorden: ");
-            Text = Console.ReadLine();
-            return (Text);
-        }
-        public static string PasswordCheckTextSuccess()
-        {
-            Console.SetCursorPosition(5, 2);
-            return ("Den indtastede kodeord er gyldig, du må fortsætte.");
-        }
-        public static string PasswordCheckTextFail()
-        {
-            Console.SetCursorPosition(5, 1);
-            return ("Den indtastede brugernavn eller password er forkert angivet");
         }
 
         public static int FodboldProgramText()
