@@ -60,7 +60,7 @@ namespace TreCasesPasswordSamlet
                     break;
             }
         }
-        //Add a username and password search and check.
+        //Add a username search and make a Username & Password check.
         public static bool PasswordSearch()
         {
             string PasswordInput = UI.PasswordPromptText();
