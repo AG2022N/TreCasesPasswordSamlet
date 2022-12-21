@@ -18,11 +18,18 @@ namespace TreCasesPasswordSamlet
             Console.Clear();
             return (Number);
         }
-        public static string UsernameCreatePromptText()
+        public static string UsernamePromptText()
         {
             Console.SetCursorPosition(5, 1);
             Console.Write("Tast ind brugernavn: ");
             string Text = Console.ReadLine();
+            return (Text);
+        }
+        public static string PasswordPromptText()
+        {
+            Console.SetCursorPosition(5, 2);
+            Console.Write("Indtast kodeorden: ");
+            Text = Console.ReadLine();
             return (Text);
         }
         public static string PasswordCreateTextSuccess()
@@ -34,13 +41,6 @@ namespace TreCasesPasswordSamlet
         {
             Console.SetCursorPosition(5, 3);
             return ("Den indtastede kodeord er ugyldig, prøv igen.");
-        }
-        public static string PasswordPromptText()
-        {
-            Console.SetCursorPosition(5, 2);
-            Console.Write("Indtast kodeorden: ");
-            Text = Console.ReadLine();
-            return (Text);
         }
         public static string PasswordWriteToFileSuccess()
         {

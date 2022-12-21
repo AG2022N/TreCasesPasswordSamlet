@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace TreCasesPasswordSamlet
@@ -17,9 +18,12 @@ namespace TreCasesPasswordSamlet
                 case 1:
                     while (PasswordValid == false)
                     {
-                        PasswordValid = PasswordSearch();
-                        Console.ReadKey();
-                        Console.Clear();
+                        if (UsernameSearch() == true)
+                        {
+                            PasswordValid = PasswordSearch();
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
                     }
                     break;
                 case 2:
@@ -60,7 +64,23 @@ namespace TreCasesPasswordSamlet
                     break;
             }
         }
-        //Add a username search and make a Username & Password check.
+
+        //It will look for the username to see whether it exists there or not, but it does not look for a correlation with a password, say we John who
+        //has his password set to Test1 and we have James who has his set to Test2 - if the user trying to log-in types in one of their names and one of these
+        //passwords, the user will be able to log-in to both users.
+        public static bool UsernameSearch()
+        {
+            foreach (string line in PasswordPath)
+            {
+                string UsernameInput = UI.UsernamePromptText();
+                if (line.Contains(UsernameInput.ToString()))
+                {
+                    return (true);
+                }
+            }
+            Console.WriteLine(UI.PasswordSearchFailText());
+            return (false);
+        }
         public static bool PasswordSearch()
         {
             string PasswordInput = UI.PasswordPromptText();
@@ -77,7 +97,7 @@ namespace TreCasesPasswordSamlet
         }
         public static string UsernameCreate()
         {
-            string Text = UI.UsernameCreatePromptText();
+            string Text = UI.UsernamePromptText();
             return (Text);
         }
         public static bool PasswordCreate(string Text)
