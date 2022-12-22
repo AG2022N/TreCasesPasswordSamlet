@@ -51,7 +51,7 @@ namespace TreCasesPasswordSamlet
                         {
                             string B = FodboldProgram();
                             Console.SetCursorPosition(5, 2);
-                            Console.WriteLine(B);
+                            Console.Write(B);
                             Console.ReadKey();
                         }
                         break;
@@ -59,7 +59,7 @@ namespace TreCasesPasswordSamlet
                         for (int i = 0; i < Max; i++)
                         {
                             string danserPar = Case2Danser.DanserProgram();
-                            Console.SetCursorPosition(5, 2);
+                            Console.SetCursorPosition(5, 1);
                             Console.Write(danserPar);
                             Console.ReadKey();
                             Console.Clear();
@@ -93,7 +93,7 @@ namespace TreCasesPasswordSamlet
             {
                 if (line.Contains(PasswordInput.ToString()))
                 {
-                    Console.WriteLine(UI.PasswordSearchSuccessText());
+                    Console.Write(UI.PasswordSearchSuccessText());
                     return (true);
                 }
             }
