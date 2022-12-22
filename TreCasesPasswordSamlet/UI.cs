@@ -20,9 +20,10 @@ namespace TreCasesPasswordSamlet
         }
         public static string UsernamePromptText()
         {
+            Console.Clear();
             Console.SetCursorPosition(5, 1);
             Console.Write("Tast ind brugernavn: ");
-            string Text = Console.ReadLine();
+            Text = Console.ReadLine();
             return (Text);
         }
         public static string PasswordPromptText()
@@ -83,7 +84,7 @@ namespace TreCasesPasswordSamlet
         {
             Console.Clear();
             Console.SetCursorPosition(5, 1);
-            Console.WriteLine("Indtast antal afleveringer: ");
+            Console.Write("Indtast antal afleveringer: ");
             Number = Convert.ToInt32(Console.ReadLine());
             return (Number);
         }
