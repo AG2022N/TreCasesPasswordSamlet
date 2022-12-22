@@ -45,13 +45,13 @@ namespace TreCasesPasswordSamlet
         }
         public static string PasswordWriteToFileSuccess()
         {
-            Text = ("Password Gemt");
+            Text = ("Password gemt");
             return (Text);
         }
         public static string PasswordSearchSuccessText()
         {
             Console.SetCursorPosition(5, 3);
-            return ("Den indtastede kodeord er Korrekt, du må fortsætte.");
+            return ("Den indtastede kodeord er korrekt, du må fortsætte.");
         }
         public static string PasswordSearchFailText()
         {
