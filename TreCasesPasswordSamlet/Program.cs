@@ -58,11 +58,11 @@ namespace TreCasesPasswordSamlet
                     case 2:
                         for (int i = 0; i < Max; i++)
                         {
+                            Console.Clear();
                             string danserPar = Case2Danser.DanserProgram();
                             Console.SetCursorPosition(5, 1);
                             Console.Write(danserPar);
                             Console.ReadKey();
-                            Console.Clear();
                         }
                         break;
                 }
