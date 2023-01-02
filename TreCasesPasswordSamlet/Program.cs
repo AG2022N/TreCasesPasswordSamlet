@@ -68,11 +68,16 @@ namespace TreCasesPasswordSamlet
                 }
             }
         }
+        //  Metoder
+        //    ||
+        //   _||_
+        //   \  /
+        //    \/
 
-        //It will look for the username to see whether it exists there or not, but it does not look for a correlation with a password, say we John who
-        //has his password set to Test1 and we have James who has his set to Test2 - if the user trying to log-in types in one of their names and one of these
-        //passwords, the user will be able to log-in to both users. For example he might type in John and then Test2, or James and Test1,
-        //currently this will let him through.
+        //Som det er lige nu, dette vil søge om brugernavn findes i password.txt.
+        //Lige nu er der ingen sammenhæng mellem brugernavn og kodeord, man kan bruge alle "ord" der findes i filen som både brugernavn og kodeord.
+        //For eksempel, Admin og Admin.
+        //Den tjekker blot om den indtastede streng findes i tekst filem.
         public static bool UsernameSearch()
         {
             foreach (string line in PasswordPath)
