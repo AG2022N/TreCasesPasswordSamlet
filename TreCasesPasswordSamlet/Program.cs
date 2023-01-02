@@ -68,11 +68,16 @@ namespace TreCasesPasswordSamlet
                 }
             }
         }
-        //  Metoder
-        //    ||
-        //   _||_
-        //   \  /
-        //    \/
+
+        //    Metoder
+        //     |  |
+        //     |  |
+        //   __|  |__
+        //   \      /
+        //    \    /
+        //     \  /
+        //      \/
+
 
         //Som det er lige nu, dette vil søge om brugernavn findes i password.txt.
         //Lige nu er der ingen sammenhæng mellem brugernavn og kodeord, man kan bruge alle "ord" der findes i filen som både brugernavn og kodeord.
