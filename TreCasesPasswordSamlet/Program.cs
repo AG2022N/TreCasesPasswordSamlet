@@ -68,15 +68,15 @@ namespace TreCasesPasswordSamlet
                 }
             }
         }
-
-        //    Metoder
-        //     |  |
-        //     |  |
-        //   __|  |__
-        //   \      /
-        //    \    /
-        //     \  /
-        //      \/
+        //                      Metoder
+        //                         __
+        //                        |  |
+        //                        |  |
+        //                      __|  |__
+        //                      \      /
+        //                       \    /
+        //                        \  /
+        //                         \/
 
 
         //Som det er lige nu, dette vil søge om brugernavn findes i password.txt.
@@ -96,6 +96,8 @@ namespace TreCasesPasswordSamlet
             Console.WriteLine(UI.PasswordSearchFailText());
             return (false);
         }
+
+        //Tjekker om den indtastede kodeord findes i filen.
         public static bool PasswordSearch()
         {
             string PasswordInput = UI.PasswordPromptText();
