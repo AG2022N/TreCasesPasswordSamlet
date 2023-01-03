@@ -8,7 +8,7 @@ namespace TreCasesPasswordSamlet
     internal class Program
     {
         public static string PasswordOutput = @"C:\Users\allgaw\Documents\C#\TreCases\TreCasesPasswordSamlet\TreCasesPasswordSamlet\Passwords.txt";
-        public static string[] PasswordPath = File.ReadAllLines(@"C:\Users\allgaw\Documents\C#\TreCases\TreCasesPasswordSamlet\TreCasesPasswordSamlet\Passwords.txt");
+        public static string[] PasswordPath = File.ReadAllLines(PasswordOutput);
         static void Main()
         {
             bool PasswordValid = false;
