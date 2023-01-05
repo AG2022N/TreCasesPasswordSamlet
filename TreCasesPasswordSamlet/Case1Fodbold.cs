@@ -10,7 +10,7 @@ namespace TreCasesPasswordSamlet
             switch (Number)
             {
                 case 0:
-                    Text = "shh";
+                    Text = "Shh";
                     break;
                 case 10:
                     Text = "High fives og jubel";
@@ -18,7 +18,7 @@ namespace TreCasesPasswordSamlet
             }
             if (Number > 1 && Number < 10)
             {
-                Text = "huh!";
+                Text = "Huh!";
             }
             return $"{Text}";
         }
