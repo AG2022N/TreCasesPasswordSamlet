@@ -13,12 +13,12 @@ namespace TreCasesPasswordSamlet
                     Text = "Shh";
                     break;
                 case 10:
-                    Text = "High fives og jubel";
+                    Text = "High Five – Jubel!!!";
                     break;
             }
             if (Number > 1 && Number < 10)
             {
-                Text = "Huh!";
+                Text = "Huh! Huh! Huh!";
             }
             return $"{Text}";
         }
